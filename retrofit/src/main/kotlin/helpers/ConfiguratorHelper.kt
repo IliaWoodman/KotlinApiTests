@@ -1,5 +1,9 @@
 package helpers
 
+import Project
+import ProjectName.*
+import clients.BaseClient
+
 // TODO Сделать конфигурацию урла
 object ConfiguratorHelper {
     fun getBaseUrl(): String {
@@ -20,4 +24,13 @@ enum class Environment(val env: String) {
     DEV("asd"),
     RELEASE("gs"),
     PROD("gsd")
+}
+// TODO Дописать логику: разные проекты и разные энвы
+fun <T: BaseClient> getProject(clazz: Class<T>): String {
+    val project = clazz.getAnnotation(Project::class.java) ?: throw IllegalArgumentException("Неверный проект")
+    return when (project.projectName) {
+        GITHUB -> "https://api.github.com"
+        BOOK_STORE -> ""
+        PET_STORE -> ""
+    }
 }

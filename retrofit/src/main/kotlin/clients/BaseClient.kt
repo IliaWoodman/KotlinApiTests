@@ -1,0 +1,3 @@
+package clients
+
+interface BaseClient

@@ -1,13 +1,15 @@
 package clients
 
+import Project
+import ProjectName.GITHUB
 import helpers.ConfiguratorHelper
 import models.Contributor
 import models.Issue
 import retrofit2.Call
 import retrofit2.http.*
 
-// TODO написать свою аннотацию на класс в которую указываем проект и по этой аннотации будем подставлять бейсУрл
-interface GitHub {
+@Project(GITHUB)
+interface GitHub : BaseClient{
     @GET("/repos/{owner}/{repo}/contributors")
     fun contributors(
         @Path("owner") owner: String,
