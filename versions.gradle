@@ -1,0 +1,6 @@
+ext.versions = [
+        jUnit5: '5.8.2',
+        feign: '11.9',
+        gson: '2.9.0',
+        retrofit: '2.9.0'
+]

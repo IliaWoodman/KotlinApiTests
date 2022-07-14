@@ -1,0 +1,51 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.6.10'
+    id 'java'
+    id 'io.qameta.allure' version '2.10.0'
+}
+
+apply from: 'versions.gradle'
+apply from: 'dependencies.gradle'
+
+
+group 'KotlinApi'
+version '1.0-SNAPSHOT'
+
+allprojects {
+    apply plugin: "java"
+    apply plugin: "kotlin"
+    apply plugin: "io.qameta.allure"
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        implementation "org.jetbrains.kotlin:kotlin-stdlib"
+
+        testImplementation testDependencies.junitApi
+        testRuntimeOnly testDependencies.junitEngine
+        testImplementation testDependencies.junitParams
+
+        implementation testDependencies.fiegnCore
+        implementation testDependencies.fiegnGson
+
+        implementation testDependencies.gson
+    }
+
+    test {
+        systemProperties = System.properties
+        String tags = systemProperties["tags"] ?: ""
+        useJUnitPlatform() {
+            if (!tags.isEmpty()) {
+                includeTags(tags)
+            }
+        }
+
+    }
+
+}
+
+
+task hello() {
+    println "Hello world"
+}

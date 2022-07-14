@@ -1,0 +1,10 @@
+ext.testDependencies = [
+        junitApi             : "org.junit.jupiter:junit-jupiter-api:${versions.jUnit5}",
+        junitEngine          : "org.junit.jupiter:junit-jupiter-engine:${versions.jUnit5}",
+        junitParams          : "org.junit.jupiter:junit-jupiter-params:${versions.jUnit5}",
+        fiegnCore            : "io.github.openfeign:feign-core:${versions.feign}",
+        fiegnGson            : "io.github.openfeign:feign-core:${versions.feign}",
+        gson                 : "com.google.code.gson:gson:${versions.gson}",
+        retrofit             : "com.squareup.retrofit2:retrofit:${versions.retrofit}",
+        retrofitConverterGson: "com.squareup.retrofit2:converter-gson:${versions.retrofit}"
+]
