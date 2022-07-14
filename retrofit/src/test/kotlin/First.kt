@@ -1,7 +1,6 @@
 import clients.GitHub
 import helpers.build
 import helpers.makeRequest
-import models.Issue
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Tag
 import org.junit.jupiter.api.Test
