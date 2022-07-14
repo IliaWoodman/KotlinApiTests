@@ -18,7 +18,6 @@ interface GitHub : BaseClient{
 
     @POST("/repos/{owner}/{repo}/issues")
     fun createIssue(
-        @Url url: String = ConfiguratorHelper.getBaseUrl(),
         @Body issue: Issue,
         @Path("owner") owner: String,
         @Path("repo") repo: String

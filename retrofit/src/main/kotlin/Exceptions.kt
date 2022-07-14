@@ -1,0 +1,1 @@
+class IncorrectProjectException(override val message: String): RuntimeException(message)

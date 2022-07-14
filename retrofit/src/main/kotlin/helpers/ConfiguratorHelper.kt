@@ -3,9 +3,11 @@ package helpers
 import Project
 import ProjectName.*
 import clients.BaseClient
+import helpers.ConfiguratorHelper.getGitHubBaseUrl
 
 // TODO Сделать конфигурацию урла
 object ConfiguratorHelper {
+    @Deprecated("Используй getProject(clazz: Class<T>)",  ReplaceWith("getProject()"))
     fun getBaseUrl(): String {
         val env: String? = System.getProperty("env")
         val url = when (env) {
@@ -16,6 +18,16 @@ object ConfiguratorHelper {
         }
         return url
     }
+
+    fun getGitHubBaseUrl(): String {
+        val env: String = System.getProperty("env") ?: return "https://api.github.com"
+        return when (env) {
+            "dev" -> "https://api.github.com"
+            "release" -> "https://api.github.com"
+            "prod" -> "https://api.github.com"
+            else -> env
+        }
+    }
 }
 
 // TODO сделать конструктор урла аля "${protocol}://${prefix}.${env}.${domain}/${endpoint}";
@@ -25,11 +37,13 @@ enum class Environment(val env: String) {
     RELEASE("gs"),
     PROD("gsd")
 }
+
 // TODO Дописать логику: разные проекты и разные энвы
-fun <T: BaseClient> getProject(clazz: Class<T>): String {
-    val project = clazz.getAnnotation(Project::class.java) ?: throw IllegalArgumentException("Неверный проект")
+fun <T : BaseClient> getProject(clazz: Class<T>): String {
+    val project = clazz.getAnnotation(Project::class.java)
+        ?: throw NullPointerException("Возможно, забыл навесить аннотацию @Project на $clazz")
     return when (project.projectName) {
-        GITHUB -> "https://api.github.com"
+        GITHUB -> getGitHubBaseUrl()
         BOOK_STORE -> ""
         PET_STORE -> ""
     }
