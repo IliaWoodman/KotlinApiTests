@@ -26,6 +26,8 @@ allprojects {
         testRuntimeOnly testDependencies.junitEngine
         testImplementation testDependencies.junitParams
 
+        implementation testDependencies.kotlinReflect
+
         implementation testDependencies.fiegnCore
         implementation testDependencies.fiegnGson
 

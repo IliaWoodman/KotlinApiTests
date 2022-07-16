@@ -26,14 +26,3 @@ class LoggingInterceptor : Interceptor {
         return response.newBuilder().body(newRespBody).build()
     }
 }
-
-// TODO выпилить
-class Inter : Interceptor {
-    override fun intercept(chain: Interceptor.Chain): okhttp3.Response {
-        val r = chain.request()
-        println("AXAXAXAXAXAXAXAXAXXA")
-        println(r.body())
-        println("AXAXAXAXAXAXAXAXAXXA")
-        return chain.proceed(r)
-    }
-}

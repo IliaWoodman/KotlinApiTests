@@ -6,5 +6,6 @@ ext.testDependencies = [
         fiegnGson            : "io.github.openfeign:feign-core:${versions.feign}",
         gson                 : "com.google.code.gson:gson:${versions.gson}",
         retrofit             : "com.squareup.retrofit2:retrofit:${versions.retrofit}",
-        retrofitConverterGson: "com.squareup.retrofit2:converter-gson:${versions.retrofit}"
+        retrofitConverterGson: "com.squareup.retrofit2:converter-gson:${versions.retrofit}",
+        kotlinReflect        : "org.jetbrains.kotlin:kotlin-reflect:${versions.kotlinReflect}"
 ]
