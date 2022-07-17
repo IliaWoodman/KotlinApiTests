@@ -1,8 +1,11 @@
 package toggles
 
 enum class Toggles {
-    @Toggle(name = "Многопоточное логирование", defaultEnabled = false, gradleKey = "LOGS")
-    LOGS;
+    @Toggle(name = "Многопоточное логирование", defaultEnabled = true, gradleKey = "LOGS")
+    LOGS,
+
+    @Toggle(name = "Тогл для юнит тестов", defaultValue = "TestToggle", gradleKey = "TEST_TOGGLE")
+    TEST_TOGGLE;
 
     fun isActive(): Boolean {
        return ToggleWrapper.isActive(this)
