@@ -15,6 +15,7 @@ class TogglesTests {
         val toggle = LOGS
         toggle.setValue(false)
         assertFalse(toggle.isActive())
+        System.clearProperty("TEST_TOGGLE")
     }
 
     @Test
@@ -22,6 +23,7 @@ class TogglesTests {
         val toggle = LOGS
         System.setProperty(toggle.name, "false")
         assertFalse(toggle.isActive())
+        System.clearProperty("TEST_TOGGLE")
     }
 
     @Test
@@ -32,6 +34,7 @@ class TogglesTests {
             toggle.isActive()
         }
         assertEquals("-DLOGS == \"invalidValue\". Допустимые значения: true или false", exception.message)
+        System.clearProperty("TEST_TOGGLE")
     }
 
     @Test
@@ -43,5 +46,6 @@ class TogglesTests {
     fun setDefaultValueTest() {
         TEST_TOGGLE.setValue("CustomValue")
         assertEquals("CustomValue", TEST_TOGGLE.getValue())
+        System.clearProperty("TEST_TOGGLE")
     }
 }

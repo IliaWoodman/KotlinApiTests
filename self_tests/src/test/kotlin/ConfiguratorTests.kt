@@ -17,6 +17,7 @@ class ConfiguratorTests {
         System.setProperty("env","release")
         val baseUrl = getProject(TestGitHubClient::class.java)
         assertEquals("https://release.api.github.com", baseUrl)
+        System.clearProperty("env")
     }
 
     @Test
@@ -24,6 +25,7 @@ class ConfiguratorTests {
         System.setProperty("env","prod")
         val baseUrl = getProject(TestGitHubClient::class.java)
         assertEquals("https://prod.api.github.com", baseUrl)
+        System.clearProperty("env")
     }
 
     @Test
@@ -31,6 +33,7 @@ class ConfiguratorTests {
         System.setProperty("env","dev")
         val baseUrl = getProject(TestGitHubClient::class.java)
         assertEquals("https://api.github.com", baseUrl)
+        System.clearProperty("env")
     }
 
     @Test
@@ -38,7 +41,7 @@ class ConfiguratorTests {
         val exception = assertThrows(NullPointerException::class.java) {
             getProject(InvalidTestClient::class.java)
         }
-        assertEquals("Возможно, забыл навесить аннотацию @Project на class TestClient", exception.message)
+        assertEquals("Возможно, забыл навесить аннотацию @Project на class InvalidTestClient", exception.message)
     }
 
     @Test
