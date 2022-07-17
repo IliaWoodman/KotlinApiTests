@@ -14,7 +14,7 @@ class ConfiguratorTests {
 
     @Test
     fun gitHubReleaseBaseUrl() {
-        System.setProperty("env","release")
+        System.setProperty("env", "release")
         val baseUrl = getProject(TestGitHubClient::class.java)
         assertEquals("https://release.api.github.com", baseUrl)
         System.clearProperty("env")
@@ -22,7 +22,7 @@ class ConfiguratorTests {
 
     @Test
     fun gitHubProdBaseUrl() {
-        System.setProperty("env","prod")
+        System.setProperty("env", "prod")
         val baseUrl = getProject(TestGitHubClient::class.java)
         assertEquals("https://prod.api.github.com", baseUrl)
         System.clearProperty("env")
@@ -30,7 +30,7 @@ class ConfiguratorTests {
 
     @Test
     fun gitHubDevBaseUrl() {
-        System.setProperty("env","dev")
+        System.setProperty("env", "dev")
         val baseUrl = getProject(TestGitHubClient::class.java)
         assertEquals("https://api.github.com", baseUrl)
         System.clearProperty("env")

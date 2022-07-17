@@ -3,5 +3,6 @@ ext.versions = [
         feign: '11.9',
         gson: '2.9.0',
         retrofit: '2.9.0',
-        kotlinReflect:  '1.7.10'
+        kotlinReflect:  '1.7.10',
+        allureJunit: '2.18.1'
 ]

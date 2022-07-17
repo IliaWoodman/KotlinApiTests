@@ -11,7 +11,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 // Для использования в тестах можно использовать только makeRequest()
 
 //Создаем реквест билдер
-inline fun <reified T: BaseClient> build(type: Class<T>): T {
+inline fun <reified T : BaseClient> build(type: Class<T>): T {
     return Retrofit.Builder()
         .baseUrl(ConfiguratorHelper.getProject(type))
         .client(getClient()) // TODO Написать интерсептор и воткнуть сюда // val hhhtp = OkHttpClient.Builder().addInterceptor(Inter()).build()
@@ -29,7 +29,7 @@ fun <T> Call<T>.customExecute(): Response<T> {
 }
 
 // делаем запрос и возвращаем респонс
-inline fun <reified T: BaseClient, R> makeRequest(obj: Class<T>, block: T.() -> Call<R>): Response<R> {
+inline fun <reified T : BaseClient, R> makeRequest(obj: Class<T>, block: T.() -> Call<R>): Response<R> {
     return build(obj).block().customExecute()
 }
 
