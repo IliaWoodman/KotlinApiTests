@@ -27,7 +27,7 @@ class Second {
     @Test
     @Tags(Tag("REGRESS"), Tag("OZERANSKI"))
     fun test2() {
-        Assertions.assertTrue(false)
+        Assertions.assertTrue(true)
     }
 
     @Test

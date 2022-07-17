@@ -1,0 +1,4 @@
+group 'KotlinApi'
+dependencies {
+    implementation project(":retrofit")
+}

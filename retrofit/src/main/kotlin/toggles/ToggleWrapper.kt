@@ -1,6 +1,6 @@
 package toggles
 
-object ToggleWrapper {
+internal object ToggleWrapper {
 
     fun isActive(toggle: Toggles): Boolean {
         return isEnabledByGradle(toggle) ?: return isEnabledByDefault(toggle)

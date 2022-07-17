@@ -1,3 +1,4 @@
 rootProject.name = 'KotlinApi'
 include 'retrofit'
+include 'self_tests'
 
