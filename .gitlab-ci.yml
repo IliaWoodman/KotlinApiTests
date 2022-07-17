@@ -1,0 +1,43 @@
+stages:
+  - api_tests
+  - self_test
+
+variables:
+  LANG: "en_US.UTF-8"
+  THREADS: 20
+
+selfTests:
+  stage: self_test
+  allow_failure: false
+  image: //TODO
+  script:
+    - chmod +x ./ci/self_tests.sh
+    - ./ci/self_tests.sh
+  only:
+    - pushes
+    - web
+  artifacts:
+    when: always
+    paths:
+      - self_tests/build/reports
+    expire_in: 7 days
+  tags:
+    - kotlin-api-test
+
+apiTests:
+  stage: api_tests
+  allow_failure: true
+  image: //TODO
+  script:
+    - chmod +x ./ci/retrofit.sh
+    - ./ci/retrofit.sg
+  only:
+    - web
+    - merge_requests
+  artifacts:
+    when: always
+    paths:
+      - retrofit/build/reports
+    expire_in: 7 days
+  tags:
+    - kotlin-api-test
