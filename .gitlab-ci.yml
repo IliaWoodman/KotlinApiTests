@@ -39,5 +39,5 @@ apiTests:
     paths:
       - retrofit/build/reports
     expire_in: 7 days
-    tags:
-      - kotlin-api-test
+  tags:
+    - kotlin-api-test
