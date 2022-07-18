@@ -8,7 +8,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && apt update && \
     less \
     jq \
     openjdk-11-jdk
-COPY . ./ktest
+#COPY . ./ktest
 CMD ["/bin/bash"]
 
 # docker build -t . ./ktest

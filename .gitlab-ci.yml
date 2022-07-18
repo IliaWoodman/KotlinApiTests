@@ -9,7 +9,7 @@ variables:
 selfTests:
   stage: self_test
   allow_failure: false
-  image: //TODO
+  image: registry.gitlab.com/ilyaromanenko/kotlinapi
   script:
     - chmod +x ./ci/self_tests.sh
     - ./ci/self_tests.sh
@@ -27,7 +27,7 @@ selfTests:
 apiTests:
   stage: api_tests
   allow_failure: true
-  image: //TODO
+  image: registry.gitlab.com/ilyaromanenko/kotlinapi
   script:
     - chmod +x ./ci/retrofit.sh
     - ./ci/retrofit.sg
