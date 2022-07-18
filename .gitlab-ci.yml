@@ -20,8 +20,9 @@ selfTests:
     when: always
     paths:
       - self_tests/build/reports
+      - self_tests/build/test-results/test
     reports:
-      junit:  self_tests/build/reports/tests/test/index.html
+      junit: self_tests/build/test-results/test/TEST-*.xml
     expire_in: 7 days
   tags:
     - kotlin-api-test
