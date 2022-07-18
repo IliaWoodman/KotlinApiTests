@@ -1,12 +1,11 @@
 plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.6.10'
     id 'java'
-    id 'io.qameta.allure' version '2.10.0'
+    id 'io.qameta.allure' version "2.8.1"
 }
 
 apply from: 'versions.gradle'
 apply from: 'dependencies.gradle'
-
 
 group 'KotlinApi'
 version '1.0-SNAPSHOT'
@@ -18,7 +17,6 @@ allprojects {
     repositories {
         mavenCentral()
     }
-
     dependencies {
         implementation "org.jetbrains.kotlin:kotlin-stdlib"
 
@@ -45,6 +43,16 @@ allprojects {
             }
         }
 
+    }
+    allure {
+        version = '2.8.1'
+        aspectjweaver = true
+        aspectjVersion = "1.8.10"
+        configuration = "implementation"
+
+        useJUnit5 {
+            version = '2.16.1'
+        }
     }
 }
 

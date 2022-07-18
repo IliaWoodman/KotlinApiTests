@@ -1,4 +1,3 @@
-import CommonTags.SMOKE
 import clients.GitHub
 import helpers.build
 import helpers.makeRequest
@@ -9,7 +8,7 @@ import org.junit.jupiter.api.Test
 
 class First {
     @Test
-    @Tag(SMOKE)
+    @Tag("SMOKE1")
     fun test1() {
         val resp = makeRequest(GitHub::class.java) {
             contributors("OpenFeign", "feign")

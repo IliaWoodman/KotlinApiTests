@@ -1,6 +1,7 @@
 package helpers
 
 import clients.BaseClient
+import io.qameta.allure.Allure.step
 import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.Response
@@ -22,6 +23,7 @@ inline fun <reified T : BaseClient> build(type: Class<T>): T {
 
 // выполнение запроса (нужно будет в дальнейшем для свагер кавераджа и другой логики) или сделать еще один интерсептор для этих вещей
 fun <T> Call<T>.customExecute(): Response<T> {
+    step("User make response on ${request().url()}")
     if (System.getProperty("coverage").toBoolean()) {
         this.request()
     }
