@@ -20,6 +20,8 @@ selfTests:
     when: always
     paths:
       - self_tests/build/reports
+    reports:
+      - self_tests/build/reports/tests/test/index.html
     expire_in: 7 days
   tags:
     - kotlin-api-test
