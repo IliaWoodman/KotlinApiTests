@@ -68,6 +68,3 @@ class First {
         Assertions.assertTrue(resp.code() == System.getProperty("code").toInt())
     }
 }
-
-
-
