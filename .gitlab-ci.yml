@@ -33,7 +33,7 @@ apiTests:
   image: registry.gitlab.com/ilyaromanenko/kotlinapi
   script:
     - chmod +x ./ci/retrofit.sh
-    - ./ci/retrofit.sg
+    - ./ci/retrofit.sh
   only:
     - web
     - merge_requests
