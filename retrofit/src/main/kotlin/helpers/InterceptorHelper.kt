@@ -33,7 +33,7 @@ class LoggingInterceptor : Interceptor {
         val responseLog = "<---- Thread: ${Thread.currentThread().id} Time: ${(endTime - startTime) / 1e6} ms\nRESPONSE code - ${responseCode}\nRESPONSE content-type ${responseContentType}\nRESPONSE body - ${content}\nRESPONSE headers: \n${responseHeaders}"
         println(responseLog)
 
-        Allure.addAttachment("Thread: ${Thread.currentThread().id}",
+        Allure.addAttachment("Thread: ${Thread.currentThread().id} Request on - $url",
             "REQUEST:\n" +
                     "Method - $method\n" +
                     "Url - $url\n" +

@@ -1,10 +1,12 @@
+import CommonTags.EXPERIMENTAL
 import clients.GitHub
-import helpers.build
-import helpers.makeRequest
+import helpers.*
+import models.Contributor
 import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Tag
 import org.junit.jupiter.api.Test
-
 
 class First {
     @Test
@@ -21,6 +23,29 @@ class First {
             it.get(0).login == "velo"
         }
         println(resp.body()?.get(0)?.login)
+    }
+
+    @Test
+    @Tag(EXPERIMENTAL)
+    @DisplayName("Тестовый тест")
+    fun test11() {
+        var contr: Contributor? = null
+        var content: String? = null
+        makeRequest(GitHub::class.java) {
+            contributors("OpenFeign", "feign")
+        }.andCheckHeaders("Проверяем Content-Type и vary") {
+            assertEquals(get("Content-Type"), "application/json; charset=utf-8")
+            assertEquals(get("vary"), "Accept, Accept-Encoding, Accept, X-Requested-With")
+        }.andCheckBody("Пользователя velо") {
+            assertEquals(this[0].login, "velo")
+            assertEquals(this[0].contributions, 141)
+        }.extractDataFromBody("Извлекаем пользователя velo") {
+            contr = get(0)
+        }.extractDataFromHeaders("Извлекаем Content-Type") {
+            content = get("Content-Type")
+        }
+        println(contr?.login)
+        println(content)
     }
 
     @Test

@@ -8,15 +8,17 @@ import retrofit2.Call
 import retrofit2.http.*
 
 @Project(GITHUB)
-interface GitHub : BaseClient{
+interface GitHub : BaseClient {
     @GET("/repos/{owner}/{repo}/contributors")
-     fun contributors(
+    fun contributors(
         @Path("owner") owner: String,
         @Path("repo") repo: String,
+        @HeaderMap headers: Map<String, String> = emptyMap(),
+        @QueryMap query: Map<String, String> = emptyMap()
     ): Call<MutableList<Contributor>>
 
     @POST("/repos/{owner}/{repo}/issues")
-     fun createIssue(
+    fun createIssue(
         @Body issue: Issue,
         @Path("owner") owner: String,
         @Path("repo") repo: String

@@ -31,8 +31,11 @@ fun <T> Call<T>.customExecute(): Response<T> {
 }
 
 // делаем запрос и возвращаем респонс
-inline fun <reified T : BaseClient, R> makeRequest(obj: Class<T>, block: T.() -> Call<R>): Response<R> {
-    return build(obj).block().customExecute()
+inline fun <reified T : BaseClient, R> makeRequest(
+    client: Class<T>,
+    block: T.() -> Call<R>
+): Response<R> {
+    return build(client).block().customExecute()
 }
 
 fun getClient(): OkHttpClient = // TODO Добавить класс с аннотациями типа Toggle
