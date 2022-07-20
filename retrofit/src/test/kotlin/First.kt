@@ -1,6 +1,8 @@
 import CommonTags.EXPERIMENTAL
+import CommonTags.TUDESKI
 import clients.GitHub
 import helpers.*
+import io.qameta.allure.Owner
 import models.Contributor
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -28,6 +30,7 @@ class First {
     @Test
     @Tag(EXPERIMENTAL)
     @DisplayName("Тестовый тест")
+    @Owner(TUDESKI)
     fun test11() {
         var contr: Contributor? = null
         var content: String? = null
