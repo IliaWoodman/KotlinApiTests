@@ -2,4 +2,10 @@ group 'KotlinApi'
 dependencies {
     implementation testDependencies.retrofit
     implementation testDependencies.retrofitConverterGson
+    implementation testDependencies.jsonPath
+}
+task executeNotificator(type: JavaExec) {
+    main = 'NotificatorKt'
+    classpath = sourceSets.main.runtimeClasspath
+    args "gradle"
 }

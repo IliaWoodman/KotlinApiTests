@@ -4,5 +4,6 @@ ext.versions = [
         gson: '2.9.0',
         retrofit: '2.9.0',
         kotlinReflect:  '1.7.10',
-        allureJunit: '2.16.1'
+        allureJunit: '2.16.1',
+        jsonPath: '2.6.0'
 ]

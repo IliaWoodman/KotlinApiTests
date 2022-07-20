@@ -1,5 +1,4 @@
-import CommonTags.EXPERIMENTAL
-import CommonTags.TUDESKI
+import tags.CommonTags.EXPERIMENTAL
 import clients.GitHub
 import helpers.*
 import io.qameta.allure.Owner
@@ -9,10 +8,14 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Tag
 import org.junit.jupiter.api.Test
+import tags.TeamTags.GOGOLOK
+import tags.TeamTags.OZERANSKI
+import tags.TeamTags.TUDESKI
 
 class First {
     @Test
     @Tag("SMOKE1")
+    @Owner(OZERANSKI)
     fun test1() {
         val resp = makeRequest(GitHub::class.java) {
             contributors("OpenFeign", "feign")
@@ -52,6 +55,7 @@ class First {
     }
 
     @Test
+    @Owner(TUDESKI)
     fun test2() {
         val resp = build(GitHub::class.java).contributors("OpenFeign", "feign").execute()
         println(resp.body())
@@ -62,6 +66,7 @@ class First {
     }
 
     @Test
+    @Owner(GOGOLOK)
     fun test3() {
         val resp = build(GitHub::class.java).contributors("OpenFeign", "feign").execute()
         val r = resp.body() ?: throw IllegalArgumentException()
