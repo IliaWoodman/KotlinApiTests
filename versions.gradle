@@ -5,5 +5,6 @@ ext.versions = [
         retrofit: '2.9.0',
         kotlinReflect:  '1.7.10',
         allureJunit: '2.16.1',
-        jsonPath: '2.6.0'
+        jsonPath: '2.6.0',
+        jsonSchemaValidator: '1.5.1'
 ]

@@ -3,6 +3,7 @@ dependencies {
     implementation testDependencies.retrofit
     implementation testDependencies.retrofitConverterGson
     implementation testDependencies.jsonPath
+    implementation testDependencies.jsonSchemaValidator
 }
 task executeNotificator(type: JavaExec) {
     main = 'NotificatorKt'

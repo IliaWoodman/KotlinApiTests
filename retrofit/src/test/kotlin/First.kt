@@ -1,4 +1,3 @@
-import tags.CommonTags.EXPERIMENTAL
 import clients.GitHub
 import helpers.*
 import io.qameta.allure.Owner
@@ -8,6 +7,7 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Tag
 import org.junit.jupiter.api.Test
+import tags.CommonTags.EXPERIMENTAL
 import tags.TeamTags.GOGOLOK
 import tags.TeamTags.OZERANSKI
 import tags.TeamTags.TUDESKI
@@ -44,7 +44,7 @@ class First {
             assertEquals(get("vary"), "Accept, Accept-Encoding, Accept, X-Requested-With")
         }.andCheckBody("Пользователя velо") {
             assertEquals(this[0].login, "velo")
-            assertEquals(this[0].contributions, 141)
+            assertEquals(this[0].contributions, 145)
         }.extractDataFromBody("Извлекаем пользователя velo") {
             contr = get(0)
         }.extractDataFromHeaders("Извлекаем Content-Type") {
@@ -72,7 +72,5 @@ class First {
         val r = resp.body() ?: throw IllegalArgumentException()
         val user = r.find { it.login == "velo" } ?: throw NullPointerException()
         Assertions.assertTrue(user.contributions == 139)
-
-        Assertions.assertTrue(resp.code() == System.getProperty("code").toInt())
     }
 }

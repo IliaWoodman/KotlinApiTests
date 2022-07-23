@@ -9,5 +9,6 @@ ext.testDependencies = [
         retrofitConverterGson: "com.squareup.retrofit2:converter-gson:${versions.retrofit}",
         kotlinReflect        : "org.jetbrains.kotlin:kotlin-reflect:${versions.kotlinReflect}",
         allureJunit          : "io.qameta.allure:allure-junit5:${versions.allureJunit}",
-        jsonPath             : "com.jayway.jsonpath:json-path:${versions.jsonPath}"
+        jsonPath             : "com.jayway.jsonpath:json-path:${versions.jsonPath}",
+        jsonSchemaValidator : "org.everit.json:org.everit.json.schema:${versions.jsonSchemaValidator}"
 ]

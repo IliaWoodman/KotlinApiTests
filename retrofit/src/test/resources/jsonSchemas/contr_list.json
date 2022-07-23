@@ -1,0 +1,17 @@
+{
+  "title": "Product",
+  "description": "A product from the catalog",
+  "type": "array",
+  "properties": {
+    "login": {
+      "type": "string"
+    },
+    "contributions": {
+      "type": "integer"
+    },
+    "id": {
+      "type": "string"
+    }
+  },
+  "required": ["logina", "contributions", "id"]
+}
