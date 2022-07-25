@@ -53,7 +53,7 @@ class ConfiguratorTests {
     @Test
     fun getBookStoreBaseUrl() {
         val baseUrl = getProject(TestBookStoreClient::class.java)
-        assertEquals("BookStoreUrl", baseUrl)
+        assertEquals("http://localhost:8081/api/", baseUrl)
     }
 }
 
