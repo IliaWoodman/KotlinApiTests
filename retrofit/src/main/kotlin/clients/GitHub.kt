@@ -2,8 +2,8 @@ package clients
 
 import Project
 import ProjectName.GITHUB
-import models.Contributor
-import models.Issue
+import models.github.Contributor
+import models.github.Issue
 import retrofit2.Call
 import retrofit2.http.*
 

@@ -1,4 +1,4 @@
-package models
+package models.github
 
 data class Contributor(
     val login: String,

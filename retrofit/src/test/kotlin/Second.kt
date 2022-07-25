@@ -1,7 +1,7 @@
 import io.qameta.allure.Description
 import io.qameta.allure.Link
 import io.qameta.allure.Owner
-import models.Contributor
+import models.github.Contributor
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Tag
@@ -52,5 +52,4 @@ class Second {
 
         Assertions.assertTrue(arg.length > 2)
     }
-
 }

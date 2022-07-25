@@ -14,7 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 inline fun <reified T : BaseClient> build(type: Class<T>): T {
     return Retrofit.Builder()
         .baseUrl(ConfiguratorHelper.getProject(type))
-        .client(getClient()) // TODO Написать интерсептор и воткнуть сюда // val hhhtp = OkHttpClient.Builder().addInterceptor(Inter()).build()
+        .client(getClient())
         .addConverterFactory(GsonConverterFactory.create())
         .build()
         .create(type)

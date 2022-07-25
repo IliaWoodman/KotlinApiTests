@@ -3,7 +3,6 @@ package helpers
 import Project
 import ProjectName.*
 import clients.BaseClient
-import helpers.ConfiguratorHelper.getGitHubBaseUrl
 
 // TODO Сделать конфигурацию урла
 object ConfiguratorHelper {
@@ -29,13 +28,23 @@ object ConfiguratorHelper {
         }
     }
 
+    private fun getBookStoreBaseUrl(): String {
+        val env: String = System.getProperty("env") ?: return "http://localhost:8081/api/"
+        return when (env) {
+            "dev" -> "http://localhost:8081/api/"
+            "release" -> "http://localhost:8082/api/"
+            "prod" -> "http://localhost:8083/api/"
+            else -> env
+        }
+    }
+
     // TODO Дописать логику: разные проекты и разные энвы
     fun <T : BaseClient> getProject(clazz: Class<T>): String {
         val project = clazz.getAnnotation(Project::class.java)
             ?: throw NullPointerException("Возможно, забыл навесить аннотацию @Project на $clazz")
         return when (project.projectName) {
             GITHUB -> getGitHubBaseUrl()
-            BOOK_STORE -> "BookStoreUrl"
+            BOOK_STORE -> getBookStoreBaseUrl()
             PET_STORE -> "PetStoreUrl"
         }
     }

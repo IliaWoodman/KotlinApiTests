@@ -22,7 +22,7 @@ allprojects {
 
         implementation testDependencies.allureJunit
 
-        testImplementation testDependencies.junitApi
+        implementation testDependencies.junitApi
         testRuntimeOnly testDependencies.junitEngine
         testImplementation testDependencies.junitParams
 

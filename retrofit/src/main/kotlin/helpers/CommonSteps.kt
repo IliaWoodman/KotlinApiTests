@@ -1,13 +1,9 @@
 package helpers
 
-import com.google.gson.Gson
 import io.qameta.allure.Step
 import okhttp3.Headers
-import org.everit.json.schema.loader.SchemaLoader
-import org.json.JSONObject
+import org.junit.jupiter.api.Assertions.assertEquals
 import retrofit2.Response
-import java.io.File
-import java.nio.file.Paths
 
 
 @Step("User check headers. {description}")
@@ -31,6 +27,12 @@ fun <R> Response<R>.extractDataFromBody(description: String = "", block: R.() ->
 @Step("User extract data from headers. {description}")
 fun <R> Response<R>.extractDataFromHeaders(description: String = "", block: Headers.() -> Unit): Response<R> {
     headers().block()
+    return this
+}
+
+@Step("User check that code is equals {expectedCode}")
+fun <R> Response<R>.andCheckCode(expectedCode: Int): Response<R>{
+    assertEquals(expectedCode, this.code())
     return this
 }
 //
